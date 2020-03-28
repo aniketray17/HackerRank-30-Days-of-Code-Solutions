@@ -1,0 +1,27 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+   Scanner scan = new Scanner(System.in);
+    int n = scan.nextInt();
+    scan.nextLine();
+
+    for(int i = 0; i < n; i++){
+        String m = scan.nextLine();
+        int strLength = m.length();
+        String even = "", odd = "";
+        for(int j = 0; j < strLength; j++){
+            if(j % 2 == 0){
+                even = even + m.charAt(j);
+            }else {
+                odd = odd + m.charAt(j);
+            }
+        }
+        System.out.println(even + " " +odd);
+    }
+    scan.close();
+}    
+}
+
