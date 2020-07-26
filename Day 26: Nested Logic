@@ -1,0 +1,71 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    int aD,aM,aY,eD,eM,eY;
+    Scanner sc = new Scanner(System.in);
+
+    void getActualDate()
+    {
+        aD = sc.nextInt();
+        aM = sc.nextInt();
+        aY = sc.nextInt();
+    }
+
+    void getExpectedDate()
+    {
+        eD = sc.nextInt();
+        eM = sc.nextInt();
+        eY = sc.nextInt();
+    }
+
+    int calculateFine()
+    {
+        if(aY == eY)
+        {
+            if(aM == eM)
+            {
+                if(aD == eD)
+                {
+                    return 0;
+                }
+                if(aD > eD)
+                {
+                    return (aD-eD)*15;
+                }
+                if(aD < eD)
+                {
+                    return 0;
+                }
+            }
+            if(aM > eM)
+            {
+                int fine = 500 * (aM - eM);
+                return fine;
+            }
+            if(aM < eM)
+            {
+                return 0;
+            }
+        }
+        if(aY > eY)
+        {
+            return 10000;
+        }
+
+        if(aY < eY)
+        {
+            return 0;
+        }
+        return 0;
+
+    }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        s.getActualDate();
+        s.getExpectedDate();
+        System.out.println(s.calculateFine());
+
+    }
+}
